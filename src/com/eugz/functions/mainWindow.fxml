@@ -1,0 +1,64 @@
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import java.lang.*?>
+<?import javafx.scene.control.Button?>
+
+<BorderPane
+    fx:controller="com.eugz.functions.Controller"
+    xmlns:fx="http://javafx.com/fxml"
+>
+    <left>
+        <HBox
+            style="-fx-background-color: #bec4b1;"
+            prefWidth="250"
+        >
+            <BorderPane>
+                <top>
+                    <BorderPane>
+                        <top>
+                            <Label
+                                text="Settings"
+                                alignment="CENTER"
+                                style="-fx-font-family: Roboto; -fx-font-size: 20px;"
+                            />
+                        </top>
+                        <center>
+                            <ComboBox>
+                                <value>
+                                    <String fx:value="Linear function" />
+                                </value>
+                                <items>
+                                    <FXCollections fx:factory="observableArrayList">
+                                        <String fx:value="Linear function" />
+                                        <String fx:value="Quadratic function" />
+                                        <String fx:value="Cubic function" />
+                                        <String fx:value="Power-law function" />
+                                        <String fx:value="Exponential function" />
+                                        <String fx:value="Sinus function" />
+                                    </FXCollections>
+                                </items>
+                            </ComboBox>
+                        </center>
+                    </BorderPane>
+                </top>
+                <center>
+                    <Label text="Function parameters"/>
+                </center>
+                <bottom>
+                    <Button text="Render" />
+                </bottom>
+            </BorderPane>
+        </HBox>
+    </left>
+    <center>
+        <HBox>
+            <Label
+                text="Graphic"
+                style="-fx-font-family: Roboto; -fx-font-size: 20px;"
+            />
+        </HBox>
+    </center>
+</BorderPane>
