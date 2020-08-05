@@ -72,7 +72,7 @@ public class Controller {
     private TextField sinK;
 
     @FXML
-    private Label functionRepresentation;
+    private Label stringFuncRepresentation;
 
     public void initialize() {
         linearParams.setVisible(true);
@@ -92,6 +92,7 @@ public class Controller {
 
     public void selectFuncHandler() {
         renderParamsFields();
+        stringFuncRepresentation.setText("");
     }
 
     private void renderParamsFields() {
@@ -199,6 +200,6 @@ public class Controller {
         Map<String, Integer> funcParams = getFuncParams(selectedFuncType);
 
         Function func = new Function(selectedFuncType, funcParams);
-        functionRepresentation.setText(func.getFunctionRepresentation());
+        stringFuncRepresentation.setText(func.getFunctionRepresentation());
     }
 }

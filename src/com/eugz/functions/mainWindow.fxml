@@ -206,7 +206,7 @@
                         <Label
                             GridPane.rowIndex="6"
                             GridPane.columnIndex="0"
-                            fx:id="functionRepresentation"
+                            fx:id="stringFuncRepresentation"
                         />
                     </GridPane>
                 </center>
