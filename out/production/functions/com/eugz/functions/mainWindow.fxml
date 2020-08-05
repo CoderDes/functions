@@ -3,11 +3,13 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Box?>
 <?import java.lang.*?>
-<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.control.Button?>
+
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.layout.VBox?>
 <BorderPane
     fx:controller="com.eugz.functions.Controller"
     xmlns:fx="http://javafx.com/fxml"
@@ -28,7 +30,10 @@
                             />
                         </top>
                         <center>
-                            <ComboBox>
+                            <ComboBox
+                                fx:id="selectFunc"
+                                onAction="#selectFuncHandler"
+                            >
                                 <value>
                                     <String fx:value="Linear function" />
                                 </value>
@@ -47,7 +52,155 @@
                     </BorderPane>
                 </top>
                 <center>
-                    <Label text="Function parameters"/>
+                    <GridPane fx:id="paramsContainer">
+                        <GridPane fx:id="linearParams"
+                            GridPane.rowIndex="0"
+                            GridPane.columnIndex="0"
+                        >
+                            <Label text="k"
+                               GridPane.rowIndex="0"
+                               GridPane.columnIndex="0"
+                            />
+                            <TextField
+                                GridPane.rowIndex="0"
+                                GridPane.columnIndex="1"
+                                fx:id="linearK"
+                            />
+                            <Label text="b"
+                               GridPane.rowIndex="1"
+                               GridPane.columnIndex="0"
+                            />
+                            <TextField
+                                GridPane.rowIndex="1"
+                                GridPane.columnIndex="1"
+                                fx:id="linearB"
+                            />
+                        </GridPane>
+                        <GridPane fx:id="quadraticParams"
+                              GridPane.rowIndex="1"
+                              GridPane.columnIndex="0"
+                        >
+                            <Label text="a"
+                                GridPane.rowIndex="0"
+                                GridPane.columnIndex="0"
+                            />
+                            <TextField
+                                GridPane.rowIndex="0"
+                                GridPane.columnIndex="1"
+                                fx:id="quadraticA"
+                            />
+                            <Label text="b"
+                                GridPane.rowIndex="1"
+                                GridPane.columnIndex="0"
+                            />
+                            <TextField
+                                GridPane.rowIndex="1"
+                                GridPane.columnIndex="1"
+                                fx:id="quadraticB"
+                            />
+                            <Label text="c"
+                                GridPane.rowIndex="2"
+                                GridPane.columnIndex="0"
+                            />
+                            <TextField
+                                GridPane.rowIndex="2"
+                                GridPane.columnIndex="1"
+                                fx:id="quadraticC"
+                            />
+                        </GridPane>
+                        <GridPane fx:id="cubicParams"
+                              GridPane.rowIndex="2"
+                              GridPane.columnIndex="0"
+                        >
+                            <Label text="a"
+                                GridPane.rowIndex="0"
+                                GridPane.columnIndex="0"
+                            />
+                            <TextField
+                                GridPane.rowIndex="0"
+                                GridPane.columnIndex="1"
+                                fx:id="cubicA"
+                            />
+                            <Label text="b"
+                               GridPane.rowIndex="1"
+                               GridPane.columnIndex="0"
+                            />
+                            <TextField
+                                GridPane.rowIndex="1"
+                                GridPane.columnIndex="1"
+                                fx:id="cubicB"
+                            />
+                            <Label text="c"
+                               GridPane.rowIndex="2"
+                               GridPane.columnIndex="0"
+                            />
+                            <TextField
+                                GridPane.rowIndex="2"
+                                GridPane.columnIndex="1"
+                                fx:id="cubicC"
+                            />
+                            <Label text="d"
+                               GridPane.rowIndex="3"
+                               GridPane.columnIndex="0"
+                            />
+                            <TextField
+                                GridPane.rowIndex="3"
+                                GridPane.columnIndex="1"
+                                fx:id="cubicD"
+                            />
+                        </GridPane>
+                        <GridPane fx:id="powerLawParams"
+                              GridPane.rowIndex="3"
+                              GridPane.columnIndex="0"
+                        >
+                            <Label text="k"
+                               GridPane.rowIndex="0"
+                               GridPane.columnIndex="0"
+                            />
+                            <TextField
+                                GridPane.rowIndex="0"
+                                GridPane.columnIndex="1"
+                                fx:id="powK"
+                            />
+                        </GridPane>
+                        <GridPane fx:id="expoParams"
+                              GridPane.rowIndex="3"
+                              GridPane.columnIndex="0"
+                        >
+                            <Label text="x"
+                               GridPane.rowIndex="0"
+                               GridPane.columnIndex="0"
+                            />
+                            <TextField
+                                GridPane.rowIndex="0"
+                                GridPane.columnIndex="1"
+                                fx:id="expoX"
+                            />
+                        </GridPane>
+                        <GridPane fx:id="sinusParams"
+                              GridPane.rowIndex="4"
+                              GridPane.columnIndex="0"
+                        >
+                            <Label text="a"
+                               GridPane.rowIndex="0"
+                               GridPane.columnIndex="0"
+                            />
+                            <TextField
+                                GridPane.rowIndex="0"
+                                GridPane.columnIndex="1"
+                                fx:id="sinA"
+                            />
+                            <Label text="k"
+                               GridPane.rowIndex="1"
+                               GridPane.columnIndex="0"
+                            />
+                            <TextField
+                                GridPane.rowIndex="1"
+                                GridPane.columnIndex="1"
+                                fx:id="sinK"
+                            />
+                        </GridPane>
+                    </GridPane>
                 </center>
                 <bottom>
                     <Button text="Render" />
