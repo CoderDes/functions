@@ -8,8 +8,6 @@
 
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.text.Text?>
-<?import javafx.scene.layout.VBox?>
 <BorderPane
     fx:controller="com.eugz.functions.Controller"
     xmlns:fx="http://javafx.com/fxml"
@@ -52,7 +50,7 @@
                     </BorderPane>
                 </top>
                 <center>
-                    <GridPane fx:id="paramsContainer">
+                    <GridPane>
                         <GridPane fx:id="linearParams"
                             GridPane.rowIndex="0"
                             GridPane.columnIndex="0"
@@ -200,10 +198,23 @@
                                 fx:id="sinK"
                             />
                         </GridPane>
+                        <Label
+                            GridPane.rowIndex="5"
+                            GridPane.columnIndex="0"
+                            text="function representation:"
+                        />
+                        <Label
+                            GridPane.rowIndex="6"
+                            GridPane.columnIndex="0"
+                            fx:id="functionRepresentation"
+                        />
                     </GridPane>
                 </center>
                 <bottom>
-                    <Button text="Render" />
+                    <Button
+                        text="Render"
+                        onMouseClicked="#handleRenderClick"
+                    />
                 </bottom>
             </BorderPane>
         </HBox>

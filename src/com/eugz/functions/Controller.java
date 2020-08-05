@@ -2,6 +2,7 @@ package com.eugz.functions;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 
@@ -71,10 +72,10 @@ public class Controller {
     private TextField sinK;
 
     @FXML
-    private GridPane paramsContainer;
+    private Label functionRepresentation;
 
     public void initialize() {
-        linearParams.setVisible(false);
+        linearParams.setVisible(true);
         quadraticParams.setVisible(false);
         cubicParams.setVisible(false);
         powerLawParams.setVisible(false);
@@ -90,10 +91,7 @@ public class Controller {
     }
 
     public void selectFuncHandler() {
-//        TODO: find how to switch between function params form ============
         renderParamsFields();
-//        TODO: get params ONLY on click Render graphic button =============
-//        Map<String, Integer> funcParams = getFuncParams(selectedFuncType);
     }
 
     private void renderParamsFields() {
@@ -152,7 +150,6 @@ public class Controller {
 
     private Map<String, Integer> getFuncParams(String funcType) {
         Map<String, Integer> params = new HashMap<>();
-        System.out.println("FUNC TYPE: " + funcType);
 //        TODO: make a validation of input
         switch (funcType.toLowerCase()) {
             case "linear function":
@@ -197,7 +194,11 @@ public class Controller {
         return params;
     }
 
-    public void renderHandler() {
+    public void handleRenderClick() {
+        String selectedFuncType = selectFunc.getSelectionModel().getSelectedItem().toString().trim().toLowerCase();
+        Map<String, Integer> funcParams = getFuncParams(selectedFuncType);
 
+        Function func = new Function(selectedFuncType, funcParams);
+        functionRepresentation.setText(func.getFunctionRepresentation());
     }
 }
