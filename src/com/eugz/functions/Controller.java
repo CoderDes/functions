@@ -7,10 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Controller {
 
@@ -213,5 +210,20 @@ public class Controller {
         Graph myGraph = new Graph(lineGraph, func);
         graphs.add(myGraph);
         myGraph.plotLine();
+    }
+
+    public void handleClearClick() {
+        if (graphs.isEmpty()) {
+            System.out.println("IS EMPTY");
+            return;
+        }
+
+        Iterator<Graph> iter = graphs.iterator();
+
+        while (iter.hasNext()) {
+            Graph graph = iter.next();
+            graph.clear();
+            iter.remove();
+        }
     }
 }

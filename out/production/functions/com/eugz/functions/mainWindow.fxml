@@ -208,10 +208,21 @@
                     </GridPane>
                 </center>
                 <bottom>
-                    <Button
-                        text="Render"
-                        onMouseClicked="#handleRenderClick"
-                    />
+                    <GridPane>
+                        <Button
+                            GridPane.rowIndex="0"
+                            GridPane.columnIndex="0"
+                            text="Render"
+                            onMouseClicked="#handleRenderClick"
+                        />
+                        <Button
+                            GridPane.rowIndex="0"
+                            GridPane.columnIndex="1"
+                            fx:id="clear"
+                            text="Clear"
+                            onMouseClicked="#handleClearClick"
+                        />
+                    </GridPane>
                 </bottom>
             </BorderPane>
         </HBox>
