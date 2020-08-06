@@ -1,12 +1,15 @@
 package com.eugz.functions;
 
 import javafx.fxml.FXML;
+import javafx.scene.chart.LineChart;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Controller {
@@ -73,6 +76,11 @@ public class Controller {
 
     @FXML
     private Label stringFuncRepresentation;
+
+    @FXML
+    private LineChart lineGraph;
+
+    private List<Graph> graphs = new ArrayList();
 
     public void initialize() {
         linearParams.setVisible(true);
@@ -201,5 +209,9 @@ public class Controller {
 
         Function func = new Function(selectedFuncType, funcParams);
         stringFuncRepresentation.setText(func.getFunctionRepresentation());
+
+        Graph myGraph = new Graph(lineGraph, func);
+        graphs.add(myGraph);
+        myGraph.plotLine();
     }
 }

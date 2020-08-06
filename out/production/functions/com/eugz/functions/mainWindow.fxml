@@ -1,13 +1,10 @@
 <?import javafx.collections.FXCollections?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.layout.*?>
 <?import java.lang.*?>
-<?import javafx.scene.control.Button?>
-
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.GridPane?>
 <BorderPane
     fx:controller="com.eugz.functions.Controller"
     xmlns:fx="http://javafx.com/fxml"
@@ -220,11 +217,46 @@
         </HBox>
     </left>
     <center>
-        <HBox>
-            <Label
-                text="Graphic"
-                style="-fx-font-family: Roboto; -fx-font-size: 20px;"
-            />
-        </HBox>
+        <BorderPane>
+            <top>
+                <Label
+                    BorderPane.alignment="CENTER"
+                    text="Graphic"
+                    style="-fx-font-family: Roboto; -fx-font-size: 20px;"
+                />
+            </top>
+            <center>
+                <LineChart
+                    BorderPane.alignment="CENTER"
+                    fx:id="lineGraph"
+                    createSymbols="false"
+                    legendVisible="false"
+                    prefHeight="500.0"
+                    prefWidth="800.0"
+                >
+                    <xAxis>
+                        <NumberAxis
+                            autoRanging="false"
+                            lowerBound="-100"
+                            side="BOTTOM"
+                            tickUnit="1"
+                            upperBound="100"
+                        />
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis
+                            autoRanging="false"
+                            lowerBound="-100"
+                            side="LEFT"
+                            tickUnit="1"
+                            upperBound="100"
+                        />
+                    </yAxis>
+                    <cursor>
+                        <Cursor fx:constant="CROSSHAIR" />
+                    </cursor>
+                </LineChart>
+            </center>
+        </BorderPane>
     </center>
 </BorderPane>

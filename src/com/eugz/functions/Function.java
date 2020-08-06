@@ -70,6 +70,7 @@ public class Function {
                     double y = this.parameters.get("a") * Math.pow(i, 2.0) + this.parameters.get("b") * i + this.parameters.get("c");
                     this.points.add(new Point(i, y));
                 }
+                break;
             case "cubic function":
                 for (double i = -100; i <= 100; i++) {
                     double y =
