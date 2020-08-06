@@ -54,7 +54,9 @@
                     </BorderPane>
                 </top>
                 <center>
-                    <GridPane styleClass="functionParams">
+                    <GridPane
+                        styleClass="functionParams"
+                    >
                         <GridPane
                             fx:id="linearParams"
                             GridPane.rowIndex="0"

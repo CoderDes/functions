@@ -225,5 +225,24 @@ public class Controller {
             graph.clear();
             iter.remove();
         }
+
+        clearTheForm();
+    }
+
+    public void clearTheForm() {
+        linearK.setText("");
+        linearB.setText("");
+        quadraticA.setText("");
+        quadraticB.setText("");
+        quadraticC.setText("");
+        cubicA.setText("");
+        cubicB.setText("");
+        cubicC.setText("");
+        cubicD.setText("");
+        powK.setText("");
+        expoX.setText("");
+        sinA.setText("");
+        sinK.setText("");
+        stringFuncRepresentation.setText("");
     }
 }
