@@ -5,29 +5,36 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.layout.*?>
 <?import java.lang.*?>
+<?import javafx.geometry.Insets?>
 <BorderPane
     fx:controller="com.eugz.functions.Controller"
     xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@styles.css"
+    styleClass="mainContainer"
 >
     <left>
         <HBox
-            style="-fx-background-color: #bec4b1;"
-            prefWidth="250"
+            styleClass="aside"
+            BorderPane.alignment="CENTER"
         >
+            <BorderPane.margin>
+                <Insets left="20.0"/>
+            </BorderPane.margin>
             <BorderPane>
                 <top>
                     <BorderPane>
                         <top>
                             <Label
-                                text="Settings"
-                                alignment="CENTER"
-                                style="-fx-font-family: Roboto; -fx-font-size: 20px;"
+                                text="Parameters"
+                                BorderPane.alignment="CENTER"
+                                styleClass="asideTitle"
                             />
                         </top>
                         <center>
                             <ComboBox
                                 fx:id="selectFunc"
                                 onAction="#selectFuncHandler"
+                                styleClass="selectFunction"
                             >
                                 <value>
                                     <String fx:value="Linear function" />
@@ -47,182 +54,219 @@
                     </BorderPane>
                 </top>
                 <center>
-                    <GridPane>
-                        <GridPane fx:id="linearParams"
+                    <GridPane styleClass="functionParams">
+                        <GridPane
+                            fx:id="linearParams"
                             GridPane.rowIndex="0"
                             GridPane.columnIndex="0"
+                            vgap="10"
                         >
                             <Label text="k"
                                GridPane.rowIndex="0"
                                GridPane.columnIndex="0"
+                               styleClass="labelParam"
                             />
                             <TextField
                                 GridPane.rowIndex="0"
                                 GridPane.columnIndex="1"
                                 fx:id="linearK"
+                                styleClass="fieldParam"
                             />
                             <Label text="b"
                                GridPane.rowIndex="1"
                                GridPane.columnIndex="0"
+                               styleClass="labelParam"
                             />
                             <TextField
                                 GridPane.rowIndex="1"
                                 GridPane.columnIndex="1"
                                 fx:id="linearB"
+                                styleClass="fieldParam"
                             />
                         </GridPane>
                         <GridPane fx:id="quadraticParams"
                               GridPane.rowIndex="1"
                               GridPane.columnIndex="0"
+                              vgap="10"
                         >
                             <Label text="a"
                                 GridPane.rowIndex="0"
                                 GridPane.columnIndex="0"
+                                styleClass="labelParam"
                             />
                             <TextField
                                 GridPane.rowIndex="0"
                                 GridPane.columnIndex="1"
                                 fx:id="quadraticA"
+                                styleClass="fieldParam"
                             />
                             <Label text="b"
                                 GridPane.rowIndex="1"
                                 GridPane.columnIndex="0"
+                                styleClass="labelParam"
                             />
                             <TextField
                                 GridPane.rowIndex="1"
                                 GridPane.columnIndex="1"
                                 fx:id="quadraticB"
+                                styleClass="fieldParam"
                             />
                             <Label text="c"
                                 GridPane.rowIndex="2"
                                 GridPane.columnIndex="0"
+                                styleClass="labelParam"
                             />
                             <TextField
                                 GridPane.rowIndex="2"
                                 GridPane.columnIndex="1"
                                 fx:id="quadraticC"
+                                styleClass="fieldParam"
                             />
                         </GridPane>
                         <GridPane fx:id="cubicParams"
                               GridPane.rowIndex="2"
                               GridPane.columnIndex="0"
+                              vgap="10"
                         >
                             <Label text="a"
                                 GridPane.rowIndex="0"
                                 GridPane.columnIndex="0"
+                                styleClass="labelParam"
                             />
                             <TextField
                                 GridPane.rowIndex="0"
                                 GridPane.columnIndex="1"
                                 fx:id="cubicA"
+                                styleClass="fieldParam"
                             />
                             <Label text="b"
                                GridPane.rowIndex="1"
                                GridPane.columnIndex="0"
+                               styleClass="labelParam"
                             />
                             <TextField
                                 GridPane.rowIndex="1"
                                 GridPane.columnIndex="1"
                                 fx:id="cubicB"
+                                styleClass="fieldParam"
                             />
                             <Label text="c"
                                GridPane.rowIndex="2"
                                GridPane.columnIndex="0"
+                               styleClass="labelParam"
                             />
                             <TextField
                                 GridPane.rowIndex="2"
                                 GridPane.columnIndex="1"
                                 fx:id="cubicC"
+                                styleClass="fieldParam"
                             />
                             <Label text="d"
                                GridPane.rowIndex="3"
                                GridPane.columnIndex="0"
+                               styleClass="labelParam"
                             />
                             <TextField
                                 GridPane.rowIndex="3"
                                 GridPane.columnIndex="1"
                                 fx:id="cubicD"
+                                styleClass="fieldParam"
                             />
                         </GridPane>
                         <GridPane fx:id="powerLawParams"
                               GridPane.rowIndex="3"
                               GridPane.columnIndex="0"
+                              vgap="10"
                         >
                             <Label text="k"
                                GridPane.rowIndex="0"
                                GridPane.columnIndex="0"
+                               styleClass="labelParam"
                             />
                             <TextField
                                 GridPane.rowIndex="0"
                                 GridPane.columnIndex="1"
                                 fx:id="powK"
+                                styleClass="fieldParam"
                             />
                         </GridPane>
                         <GridPane fx:id="expoParams"
                               GridPane.rowIndex="3"
                               GridPane.columnIndex="0"
+                              vgap="10"
                         >
                             <Label text="x"
                                GridPane.rowIndex="0"
                                GridPane.columnIndex="0"
+                               styleClass="labelParam"
                             />
                             <TextField
                                 GridPane.rowIndex="0"
                                 GridPane.columnIndex="1"
                                 fx:id="expoX"
+                                styleClass="fieldParam"
                             />
                         </GridPane>
                         <GridPane fx:id="sinusParams"
                               GridPane.rowIndex="4"
                               GridPane.columnIndex="0"
+                              vgap="10"
                         >
                             <Label text="a"
                                GridPane.rowIndex="0"
                                GridPane.columnIndex="0"
+                               styleClass="labelParam"
                             />
                             <TextField
                                 GridPane.rowIndex="0"
                                 GridPane.columnIndex="1"
                                 fx:id="sinA"
+                                styleClass="fieldParam"
                             />
                             <Label text="k"
                                GridPane.rowIndex="1"
                                GridPane.columnIndex="0"
+                               styleClass="labelParam"
                             />
                             <TextField
                                 GridPane.rowIndex="1"
                                 GridPane.columnIndex="1"
                                 fx:id="sinK"
+                                styleClass="fieldParam"
                             />
                         </GridPane>
                         <Label
                             GridPane.rowIndex="5"
                             GridPane.columnIndex="0"
                             text="function representation:"
+                            styleClass="funcRepresTitle"
                         />
                         <Label
                             GridPane.rowIndex="6"
                             GridPane.columnIndex="0"
                             fx:id="stringFuncRepresentation"
+                            styleClass="funcRepres"
                         />
                     </GridPane>
                 </center>
                 <bottom>
-                    <GridPane>
-                        <Button
-                            GridPane.rowIndex="0"
-                            GridPane.columnIndex="0"
-                            text="Render"
-                            onMouseClicked="#handleRenderClick"
-                        />
-                        <Button
-                            GridPane.rowIndex="0"
-                            GridPane.columnIndex="1"
-                            fx:id="clear"
-                            text="Clear"
-                            onMouseClicked="#handleClearClick"
-                        />
-                    </GridPane>
+                    <BorderPane>
+                        <left>
+                            <Button
+                                text="Render"
+                                onMouseClicked="#handleRenderClick"
+                            />
+                        </left>
+                        <right>
+                            <Button
+                                text="Clear"
+                                onMouseClicked="#handleClearClick"
+                            />
+                        </right>
+                        <BorderPane.margin>
+                            <Insets bottom="50"/>
+                        </BorderPane.margin>
+                    </BorderPane>
                 </bottom>
             </BorderPane>
         </HBox>
@@ -233,7 +277,7 @@
                 <Label
                     BorderPane.alignment="CENTER"
                     text="Graphic"
-                    style="-fx-font-family: Roboto; -fx-font-size: 20px;"
+                    styleClass="graphTitle"
                 />
             </top>
             <center>
@@ -244,6 +288,7 @@
                     legendVisible="false"
                     prefHeight="500.0"
                     prefWidth="800.0"
+                    styleClass="lineChart"
                 >
                     <xAxis>
                         <NumberAxis
