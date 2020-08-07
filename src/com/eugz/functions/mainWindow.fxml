@@ -296,20 +296,16 @@
                         <NumberAxis
                             fx:id="xAxis"
                             autoRanging="false"
-                            lowerBound="-100"
                             side="BOTTOM"
                             tickUnit="1"
-                            upperBound="100"
                         />
                     </xAxis>
                     <yAxis>
                         <NumberAxis
                             fx:id="yAxis"
                             autoRanging="false"
-                            lowerBound="-100"
                             side="LEFT"
                             tickUnit="1"
-                            upperBound="100"
                         />
                     </yAxis>
                     <cursor>
