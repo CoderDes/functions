@@ -6,6 +6,7 @@ import java.util.Map;
 
 public class Function {
     private String name;
+    private double range;
     private Map<String, Integer> parameters;
     private String stringFuncRepresentation;
     private List<Point> points;
@@ -15,6 +16,7 @@ public class Function {
         this.parameters = parameters;
         this.points = new ArrayList<>();
         buildFunctionRepresentation();
+        defineRange();
         generatePoints();
     }
 
@@ -58,21 +60,22 @@ public class Function {
     }
 
     private void generatePoints() {
+        double step = this.range / 100;
         switch (this.name) {
             case "linear function":
-                for (double i = -100; i <= 100; i++) {
+                for (double i = -this.range; i <= this.range; i += step) {
                     double y = this.parameters.get("k") * i + this.parameters.get("b");
                     this.points.add(new Point(i, y));
                 }
                 break;
             case "quadratic function":
-                for (double i = -100; i <= 100; i++) {
+                for (double i = -this.range; i <= this.range; i += step) {
                     double y = this.parameters.get("a") * Math.pow(i, 2.0) + this.parameters.get("b") * i + this.parameters.get("c");
                     this.points.add(new Point(i, y));
                 }
                 break;
             case "cubic function":
-                for (double i = -100; i <= 100; i++) {
+                for (double i = -this.range; i <= this.range; i += step) {
                     double y =
                             this.parameters.get("a") * Math.pow(i, 3.0) +
                             this.parameters.get("b") * Math.pow(i, 2.0) +
@@ -82,25 +85,38 @@ public class Function {
                 }
                 break;
             case "power-law function":
-                for (double i = -100; i <= 100; i++) {
+                for (double i = -this.range; i <= this.range; i += step) {
                     double y = Math.pow(this.parameters.get("k"), i);
                     this.points.add(new Point(i, y));
                 }
                 break;
             case "exponential function":
 //                TODO: do something with x parameter here
-                for (double i = -100; i <= 100; i++) {
+                for (double i = -this.range; i <= this.range; i += step) {
                     double y = Math.pow(Math.E, i);
                     this.points.add(new Point(i, y));
                 }
                 break;
             case "sinus function":
-                for (double i = -1.0; i <= 1.0; i += 0.01) {
+                for (double i = -this.range; i <= this.range; i += step) {
                     double y = this.parameters.get("a") * Math.sin(this.parameters.get("k") * i);
                     this.points.add(new Point(i, y));
                 }
                 break;
         }
+    }
+
+    private void defineRange() {
+        if (this.name.toLowerCase().trim().equals("sinus function")) {
+            this.range = 1.0;
+            return;
+        }
+
+        this.range = 100.0;
+    }
+
+    public double getRange() {
+        return this.range;
     }
 
     public List<Point> getPoints() {

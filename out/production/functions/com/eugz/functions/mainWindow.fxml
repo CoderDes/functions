@@ -294,6 +294,7 @@
                 >
                     <xAxis>
                         <NumberAxis
+                            fx:id="xAxis"
                             autoRanging="false"
                             lowerBound="-100"
                             side="BOTTOM"
@@ -303,6 +304,7 @@
                     </xAxis>
                     <yAxis>
                         <NumberAxis
+                            fx:id="yAxis"
                             autoRanging="false"
                             lowerBound="-100"
                             side="LEFT"

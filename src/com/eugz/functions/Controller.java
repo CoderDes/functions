@@ -2,6 +2,7 @@ package com.eugz.functions;
 
 import javafx.fxml.FXML;
 import javafx.scene.chart.LineChart;
+import javafx.scene.chart.NumberAxis;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -76,6 +77,12 @@ public class Controller {
 
     @FXML
     private LineChart lineGraph;
+
+    @FXML
+    private NumberAxis xAxis;
+
+    @FXML
+    private NumberAxis yAxis;
 
     private List<Graph> graphs = new ArrayList();
 
@@ -206,6 +213,11 @@ public class Controller {
 
         Function func = new Function(selectedFuncType, funcParams);
         stringFuncRepresentation.setText(func.getFunctionRepresentation());
+
+        xAxis.setUpperBound(func.getRange());
+        xAxis.setLowerBound(-func.getRange());
+        yAxis.setUpperBound(func.getRange());
+        yAxis.setLowerBound(-func.getRange());
 
         Graph myGraph = new Graph(lineGraph, func);
         graphs.add(myGraph);
