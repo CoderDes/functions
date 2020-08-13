@@ -161,45 +161,45 @@ public class Controller {
         }
     }
 
-    private Map<String, Integer> getFuncParams(String funcType) {
-        Map<String, Integer> params = new HashMap<>();
-//        TODO: make a validation of input
+    private Map<String, Double> getFuncParams(String funcType) {
+        Map<String, Double> params = new HashMap<>();
+
         switch (funcType.toLowerCase()) {
             case "linear function":
-                int linK = Integer.parseInt(linearK.getText());
-                int linB = Integer.parseInt(linearB.getText());
+                double linK = Double.parseDouble(linearK.getText());
+                double linB = Double.parseDouble(linearB.getText());
                 params.put("k", linK);
                 params.put("b", linB);
                 break;
             case "quadratic function":
-                int quaA = Integer.parseInt(quadraticA.getText());
-                int quaB = Integer.parseInt(quadraticB.getText());
-                int quaC = Integer.parseInt(quadraticC.getText());
+                double quaA = Double.parseDouble(quadraticA.getText());
+                double quaB = Double.parseDouble(quadraticB.getText());
+                double quaC = Double.parseDouble(quadraticC.getText());
                 params.put("a", quaA);
                 params.put("b", quaB);
                 params.put("c", quaC);
                 break;
             case "cubic function":
-                int cubA = Integer.parseInt(cubicA.getText());
-                int cubB = Integer.parseInt(cubicB.getText());
-                int cubC = Integer.parseInt(cubicC.getText());
-                int cubD = Integer.parseInt(cubicD.getText());
+                double cubA = Double.parseDouble(cubicA.getText());
+                double cubB = Double.parseDouble(cubicB.getText());
+                double cubC = Double.parseDouble(cubicC.getText());
+                double cubD = Double.parseDouble(cubicD.getText());
                 params.put("a", cubA);
                 params.put("b", cubB);
                 params.put("c", cubC);
                 params.put("d", cubD);
                 break;
             case "power-law function":
-                int powerK = Integer.parseInt(powK.getText());
+                double powerK = Double.parseDouble(powK.getText());
                 params.put("k", powerK);
                 break;
             case "exponential function":
-                int x = Integer.parseInt(expoX.getText());
+                double x = Double.parseDouble(expoX.getText());
                 params.put("x", x);
                 break;
             case "sinus function":
-                int sinusA = Integer.parseInt(sinA.getText());
-                int sinusK = Integer.parseInt(sinK.getText());
+                double sinusA = Double.parseDouble(sinA.getText());
+                double sinusK = Double.parseDouble(sinK.getText());
                 params.put("a", sinusA);
                 params.put("k", sinusK);
                 break;
@@ -209,7 +209,7 @@ public class Controller {
 
     public void handleRenderClick() {
         String selectedFuncType = selectFunc.getSelectionModel().getSelectedItem().toString().trim().toLowerCase();
-        Map<String, Integer> funcParams = getFuncParams(selectedFuncType);
+        Map<String, Double> funcParams = getFuncParams(selectedFuncType);
 
         Function func = new Function(selectedFuncType, funcParams);
         stringFuncRepresentation.setText(func.getFunctionRepresentation());

@@ -7,11 +7,11 @@ import java.util.Map;
 public class Function {
     private String name;
     private double range;
-    private Map<String, Integer> parameters;
+    private Map<String, Double> parameters;
     private String stringFuncRepresentation;
     private List<Point> points;
 
-    public Function(String mathFunctionName, Map<String, Integer> parameters) {
+    public Function(String mathFunctionName, Map<String, Double> parameters) {
         this.name = mathFunctionName;
         this.parameters = parameters;
         this.points = new ArrayList<>();
